@@ -18,12 +18,12 @@ The shortcuts below are from the `SDIP Internals` folder. I'd recommend creating
 | Dictionary to Parameters | Yes | Creates the `?w=x&y=z` parameter form from a dictionary input |
 | Text to Dictionary | Yes | Takes a '?w=x&y=z' input and creates a dictionary from it. Could fail in rare situations due to [Bug 01](https://github.com/PineaFan/SDIP/blob/production/BUGS.md#1-split-text) |
 | Find Contact ID | Yes | Due to [Bug 02](https://github.com/PineaFan/SDIP/blob/production/BUGS.md#2-find-contacts), this function is designed to more accurately find contacts based on given inputs |
-| Helpers / Opposite Device | Likely | If run on an iPhone, this returns "iPad", and vice versa. Relied upon by most modules |
-| Modules / Battery | No | Responds to and shows battery requests |
-| Modules / Silent | No | Remotely puts another device on silent |
-| Modules / Notify | No | Sends any text as a notification to another device (Except `=` and `&`, as it would affect parameters |
-| Modules / Lock | No | Remotely locks *all* devices with SDIP enabled |
-| Modules / Location | No | Currently bugged (due to timing out, most likely), returns the device's address, lat/lon/alt, and if it's in motion (walking, car, stationary) |
+| Helpers - Opposite Device | Likely | If run on an iPhone, this returns "iPad", and vice versa. Relied upon by most modules |
+| Modules - Battery | No | Responds to and shows battery requests |
+| Modules - Silent | No | Remotely puts another device on silent |
+| Modules - Notify | No | Sends any text as a notification to another device (Except `=` and `&`, as it would affect parameters |
+| Modules - Lock | No | Remotely locks *all* devices with SDIP enabled |
+| Modules - Location | No | Currently bugged (due to timing out, most likely), returns the device's address, lat/lon/alt, and if it's in motion (walking, car, stationary) |
 
 Once the modules above are installed, you need to create an automation. This has been designed to be as minimal as possible:
 
@@ -78,7 +78,7 @@ Outbound requests take 4-5 arguments, all of which are defined in a dictionary:
 
 For the battery module, we'll use the opposite device helper:
 ```
-01 Run Shortcut [SDIP Helpers / Opposite Device]
+01 Run Shortcut [SDIP Helpers - Opposite Device]
 02 Dictionary
    "contact": "$Me"
    "targetDevice": [Shortcut Result 01]
@@ -110,5 +110,3 @@ This time however, less parameters are required, as the contact and device is al
 
 That's it, you've made a module! By checking the input variables, you can do different things, and you can track complex instructions through parameters.
 If you ever get stuck, take a look at the pre-made modules too. As long as shortcut names aren't changed, they should work once installed.
-
-
